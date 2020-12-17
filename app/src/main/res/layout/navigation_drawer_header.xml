@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="176dp"
+    android:gravity="bottom"
+    android:padding="10dp"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary"
+    >
+
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/contact"
+        android:id="@+id/image"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SHOPPERS"
+        android:textStyle="bold"
+        android:textColor="#FFF"
+        android:layout_marginTop="5dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="www.shoppers.com"
+        android:textStyle="italic"
+        android:textColor="#FFF"
+        />
+
+
+
+
+</LinearLayout>
