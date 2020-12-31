@@ -36,8 +36,6 @@ public class MainFragment extends Fragment
         initView(view);
         initBottomNavView();
 
-        initRecView();
-
         return view;
     }
 
@@ -131,5 +129,9 @@ public class MainFragment extends Fragment
         });
     }
 
-
+    @Override
+    public void onResume() {
+        super.onResume();
+        initRecView();
+    }
 }
