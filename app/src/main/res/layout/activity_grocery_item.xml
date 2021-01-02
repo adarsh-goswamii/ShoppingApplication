@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GroceryItemActivity">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:id="@+id/toolbar"
+        android:elevation="4dp"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:text="Add to cart"
+        android:id="@+id/btn_add_to_cart"
+        />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:id="@+id/nested_scroll_view"
+        android:layout_below="@+id/btn_add_to_cart"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/relative_layout_first"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="Name"
+                    android:textStyle="bold"
+                    android:id="@+id/text_name"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="15 $"
+                    android:layout_alignParentRight="true"
+                    android:textColor="#5E35B1"
+                    android:textStyle="italic"
+                    android:id="@+id/text_price"
+                    />
+
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="350dp"
+                android:layout_height="350dp"
+                android:id="@+id/image_view"
+                android:layout_below="@+id/relative_layout_first"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"/>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/image_view"
+                android:id="@+id/relative_layout_stars"
+                >
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/relative_layout_first_star"
+                    >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_empty_stars"
+                        android:id="@+id/image_view_first_empty_star"
+                        />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_filled_stars"
+                        android:id="@+id/image_view_first_filled_star"
+                        android:visibility="gone"
+                        />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/relative_layout_second_star"
+                    android:layout_toRightOf="@+id/relative_layout_first_star"
+                    >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_empty_stars"
+                        android:id="@+id/image_view_second_empty_star"
+                        />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_filled_stars"
+                        android:id="@+id/image_view_second_filled_star"
+                        android:visibility="gone"
+                        />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/relative_layout_third_star"
+                    android:layout_toRightOf="@+id/relative_layout_second_star"
+                    >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_empty_stars"
+                        android:id="@+id/image_view_third_empty_star"
+                        />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_filled_stars"
+                        android:id="@+id/image_view_third_filled_star"
+                        android:visibility="gone"
+                        />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/relative_layout_stars"
+                android:id="@+id/relative_layout_description">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:text="Description"
+                    android:id="@+id/text_descriptio"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="description"
+                    android:textStyle="italic"
+                    android:layout_below="@id/text_descriptio"
+                    android:id="@+id/text_description"/>
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Reviews"
+                android:layout_below="@+id/relative_layout_description"
+                android:layout_marginTop="10dp"
+                android:textStyle="bold"
+                android:id="@+id/text_reviews"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/text_add_a_text"
+                android:text="(Add a review)"
+                android:textStyle="italic"
+                android:layout_below="@+id/relative_layout_description"
+                android:layout_toRightOf="@+id/text_reviews"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="4dp"
+                android:textColor="@color/colorPrimary"
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text_reviews"
+                android:layout_marginTop="5dp"
+                android:id="@+id/recycler_view_reviews"
+                />
+
+        </RelativeLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

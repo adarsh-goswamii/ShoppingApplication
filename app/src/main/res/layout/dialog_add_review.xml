@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="You are reviewing"
+        android:id="@+id/text_you_are_reviewing"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_toRightOf="@+id/text_you_are_reviewing"
+        android:text="Item Name"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/text_product_name"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter your name here"
+        android:layout_below="@+id/text_you_are_reviewing"
+        android:id="@+id/edit_text_name"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lines="4"
+        android:layout_below="@+id/edit_text_name"
+        android:hint="Enter your review"
+        android:gravity="start"
+        android:id="@+id/edit_text_review"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="WARNING!!"
+        android:textColor="#ED1212"
+        android:layout_below="@+id/edit_text_review"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:visibility="gone"
+        android:id="@+id/text_warning"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Review"
+        android:id="@+id/btn_add_review"
+        android:layout_below="@+id/text_warning"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        />
+
+
+</RelativeLayout>
