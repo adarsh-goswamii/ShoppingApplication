@@ -15,6 +15,7 @@ public class Utils
     private static int ID= 0;
     private static final String ALL_ITEMS_KEY= "all_items_key";
     private static final String DB_NAME= "fake_database";
+    private static final String CART_ITEMS_KEY= "cart";
     private static Gson gson= new Gson();
     private static Type groceryListType= new TypeToken<ArrayList<GroceryItem>>(){}.getType();
 
@@ -137,5 +138,26 @@ public class Utils
         }
 
         return null;
+    }
+
+    public static void addToCart(Context context, GroceryItem item)
+    {
+        SharedPreferences sharedPreferences= context.getSharedPreferences(DB_NAME, Context.MODE_PRIVATE);
+        ArrayList<GroceryItem> cartItems= gson.fromJson(sharedPreferences.getString(CART_ITEMS_KEY, null), groceryListType);
+        if(cartItems== null)
+            cartItems= new ArrayList<>();
+
+        cartItems.add(item);
+        SharedPreferences.Editor editor= sharedPreferences.edit();
+        editor.remove(CART_ITEMS_KEY);
+        editor.putString(CART_ITEMS_KEY, gson.toJson(cartItems));
+        editor.commit();
+    }
+
+    public static ArrayList<GroceryItem> getCart(Context context)
+    {
+        SharedPreferences sharedPreferences= context.getSharedPreferences(DB_NAME, Context.MODE_PRIVATE);
+        ArrayList<GroceryItem> cartItems= gson.fromJson(sharedPreferences.getString(CART_ITEMS_KEY, null), groceryListType);
+        return cartItems;
     }
 }

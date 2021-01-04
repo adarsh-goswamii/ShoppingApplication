@@ -70,7 +70,8 @@ public class GroceryItemActivity extends AppCompatActivity implements AddReviewD
                 btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        //TODO: later
+                        Utils.addToCart(GroceryItemActivity.this, product);
+                        // todo navigate to other activity.
                     }
                 });
 
