@@ -9,6 +9,7 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Array;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 
 public class Utils
 {
@@ -56,9 +57,19 @@ public class Utils
                 1.35
         );
 
+        GroceryItem groceryItem4= new GroceryItem(
+                23,
+                "ice cream",
+                "Amul Ice Cream was launched on 10th March, 1996 in Gujarat. The portfolio consisted of impulse products like sticks, cones, cups as well as take home packs and institutional/catering packs",
+                "https://i.pinimg.com/474x/56/5c/d7/565cd7abcfb97191e9de1c35b49da5cb.jpg",
+                "foods",
+                3.67
+        );
+
         allItem.add(groceryItem);
         allItem.add(groceryItem2);
         allItem.add(groceryItem3);
+        allItem.add(groceryItem4);
         SharedPreferences sharedPreferences= context.getSharedPreferences(DB_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor= sharedPreferences.edit();
         editor.putString(ALL_ITEMS_KEY, gson.toJson(allItem));
@@ -159,5 +170,32 @@ public class Utils
         SharedPreferences sharedPreferences= context.getSharedPreferences(DB_NAME, Context.MODE_PRIVATE);
         ArrayList<GroceryItem> cartItems= gson.fromJson(sharedPreferences.getString(CART_ITEMS_KEY, null), groceryListType);
         return cartItems;
+    }
+
+    public static ArrayList<GroceryItem> searchByName(Context context, String find)
+    {
+        ArrayList<GroceryItem> allItems= getAllItems(context);
+        if(allItems!= null)
+        {
+            ArrayList<GroceryItem> ret= new ArrayList<>();
+            for(GroceryItem i: allItems)
+            {
+                if(i.getName().equalsIgnoreCase(find))
+                {
+                    ret.add(i);
+                    continue;
+                }
+                String[] s= i.getName().split(" ");
+                for(String j: s)
+                    if(j.equalsIgnoreCase(find))
+                    {
+                        ret.add(i);
+                        break;
+                    }
+            }
+            return ret;
+        }
+
+        return null;
     }
 }

@@ -1,5 +1,6 @@
 package com.example.shoppingapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -114,7 +115,9 @@ public class MainFragment extends Fragment
                         break;
 
                     case R.id.search:
-                        Toast.makeText(getActivity(), "search Selceted", Toast.LENGTH_SHORT).show();
+                        Intent intent= new Intent(getActivity(), SearchActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK| Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
                         break;
 
                     case R.id.cart:
