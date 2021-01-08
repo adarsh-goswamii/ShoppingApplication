@@ -13,6 +13,9 @@ import android.widget.Toast;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.navigation.NavigationView;
 
+import static com.example.shoppingapplication.AllCategoriesDialog.ALL_CATEGORIES;
+import static com.example.shoppingapplication.AllCategoriesDialog.CALLING_ACTIVITY;
+
 public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
@@ -45,7 +48,12 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "About us Selected", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.categories:
-                        Toast.makeText(MainActivity.this, "Categories Selected", Toast.LENGTH_SHORT).show();
+                        AllCategoriesDialog dialog= new AllCategoriesDialog();
+                        Bundle bundle= new Bundle();
+                        bundle.putStringArrayList(ALL_CATEGORIES, Utils.getAllCategories(MainActivity.this));
+                        bundle.putString(CALLING_ACTIVITY, "main_activity");
+                        dialog.setArguments(bundle);
+                        dialog.show(getSupportFragmentManager(), "all_categories_dialog");
                         break;
                     case R.id.licences:
                         Toast.makeText(MainActivity.this, "Licenses Selected", Toast.LENGTH_SHORT).show();
