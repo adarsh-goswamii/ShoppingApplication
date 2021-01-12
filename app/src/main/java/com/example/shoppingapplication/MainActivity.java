@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -42,7 +43,9 @@ public class MainActivity extends AppCompatActivity {
                 switch(item.getItemId())
                 {
                     case R.id.cart:
-                        Toast.makeText(MainActivity.this, "Cart Selected", Toast.LENGTH_SHORT).show();
+                        Intent intent= new Intent(MainActivity.this, CartActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK| Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
                         break;
                     case R.id.about_us:
                         Toast.makeText(MainActivity.this, "About us Selected", Toast.LENGTH_SHORT).show();

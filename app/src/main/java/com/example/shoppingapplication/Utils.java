@@ -249,4 +249,23 @@ public class Utils
 
         return null;
     }
+
+    public static void DeleteItemFromCart(GroceryItem groceryItem, Context context)
+    {
+        ArrayList<GroceryItem> items= Utils.getCart(context);
+        if(items!= null && items.size()>0)
+        {
+            ArrayList<GroceryItem> newItem= new ArrayList<>();
+            for(GroceryItem i: items)
+            {
+                if(i.getId()!= groceryItem.getId())
+                    newItem.add(i);
+            }
+            SharedPreferences sharedPreferences= context.getSharedPreferences(DB_NAME, Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor= sharedPreferences.edit();
+            editor.remove(CART_ITEMS_KEY);
+            editor.putString(CART_ITEMS_KEY, gson.toJson(newItem));
+            editor.commit();
+        }
+    }
 }

@@ -121,7 +121,9 @@ public class MainFragment extends Fragment
                         break;
 
                     case R.id.cart:
-                        Toast.makeText(getActivity(), "cart selected", Toast.LENGTH_SHORT).show();
+                        Intent intent2= new Intent(getActivity(), CartActivity.class);
+                        intent2.setFlags((Intent.FLAG_ACTIVITY_CLEAR_TASK| Intent.FLAG_ACTIVITY_NEW_TASK));
+                        startActivity(intent2);
                         break;
 
                     default:
