@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#4DD1D1D1"
+    tools:context=".SearchActivity">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar"
+        android:elevation="4dp"
+        android:background="@color/design_default_color_primary"
+        />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="60dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_below="@id/toolbar"
+        >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:src="@drawable/rectangle"
+            android:layout_marginTop="20dp"
+            android:id="@+id/rectangle"
+            />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_serach"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/image_search"
+            />
+
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/image_search"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/edit_text_search"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="See All Categories"
+            android:id="@+id/text_see_all_categories"
+            android:textColor="@color/design_default_color_primary"
+            android:layout_below="@+id/rectangle"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:textSize="16sp"
+            android:layout_marginTop="10dp"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/relative_categories"
+            android:layout_below="@+id/text_see_all_categories"
+            android:layout_marginTop="10dp"
+            >
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="First Category"
+                android:id="@+id/first_category"
+                />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Second Category"
+                android:id="@+id/second_category"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Third Category"
+                android:id="@+id/third_category"
+                android:layout_below="@id/first_category"
+                android:layout_marginLeft="10dp"
+                />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fourth Category"
+                android:id="@+id/fourth_category"
+                android:layout_below="@id/first_category"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/third_category"
+                android:layout_marginTop="20dp"
+                android:id="@+id/recycler_view_search"
+                />
+
+        </RelativeLayout>
+
+
+
+
+
+    </RelativeLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_nav_menu"
+        android:id="@+id/bottomNavigationView"
+        />
+
+</RelativeLayout>

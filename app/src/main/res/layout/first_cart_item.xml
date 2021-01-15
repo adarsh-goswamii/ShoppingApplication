@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#D3D0D0"
+    android:padding="10dp"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/relative_layout_noitem"
+        android:visibility="gone"
+        >
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            app:lottie_rawRes="@raw/nothing"
+            app:lottie_autoPlay="true"
+            android:layout_marginTop="200dp"
+            android:id="@+id/lottie_nothing"
+            android:layout_centerHorizontal="true"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OOPS! SEEMS LIKE YOUR CART IS EMPTY"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/lottie_nothing"
+            />
+
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_marginBottom="30dp"
+        android:id="@+id/nested_scroll_view"
+        android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/relative_layout_items"
+        >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your Cart Item"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        android:textColor="#000000"
+        android:id="@+id/text_your_cart"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_your_cart"
+        android:id="@+id/recycler_view"
+        android:elevation="10dp"
+        />
+
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/relative_layout_total"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total: "
+            android:textStyle="bold"
+            android:id="@+id/total"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:layout_marginTop="10dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$$$$"
+            android:layout_toRightOf="@+id/total"
+            android:textColor="#000000"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/text_sum"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PLACE ORDER"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentRight="true"
+            android:textStyle="bold"
+            android:textColor="@color/design_default_color_primary"
+            android:id="@+id/text_place_order"
+            />
+
+    </RelativeLayout>
+</RelativeLayout>
