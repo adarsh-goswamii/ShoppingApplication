@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="10dp"
+    android:background="#20000000"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add a new Address"
+        android:id="@+id/textview_add_address"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:textSize="16sp"
+        android:id="@+id/edittext_name"
+        android:layout_below="@+id/textview_add_address"
+        android:background="@drawable/stylles"
+        android:hint="  Enter your Name"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/edittext_number"
+        android:hint="  Mobile Number"
+        android:background="@drawable/stylles"
+        android:layout_below="@+id/edittext_name"
+        android:layout_marginTop="10dp"
+        android:textSize="16sp"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/edittext_pincode"
+        android:hint="  PIN code"
+        android:background="@drawable/stylles"
+        android:layout_below="@+id/edittext_number"
+        android:layout_marginTop="10dp"
+        android:textSize="16sp"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/edittext_houseno"
+        android:hint="  Flat, House no, Building, Company, Apartment."
+        android:background="@drawable/stylles"
+        android:layout_below="@+id/edittext_pincode"
+        android:layout_marginTop="10dp"
+        android:textSize="16sp"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/edittext_area"
+        android:hint="  Area, Colony, Street, Sector, Village"
+        android:background="@drawable/stylles"
+        android:layout_below="@+id/edittext_houseno"
+        android:layout_marginTop="10dp"
+        android:textSize="16sp"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/edittext_landmark"
+        android:hint="  Landmark e.g. near Apollo Hospital"
+        android:background="@drawable/stylles"
+        android:layout_below="@+id/edittext_area"
+        android:layout_marginTop="10dp"
+        android:textSize="16sp"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/edittext_city"
+        android:hint="  Town/City"
+        android:background="@drawable/stylles"
+        android:layout_below="@+id/edittext_landmark"
+        android:layout_marginTop="10dp"
+        android:textSize="16sp"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/edittext_state"
+        android:hint="  State"
+        android:background="@drawable/stylles"
+        android:layout_below="@+id/edittext_city"
+        android:layout_marginTop="10dp"
+        android:textSize="16sp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textColor="#E53935"
+        android:text="Please fill in all the details"
+        android:textSize="16sp"
+        android:visibility="gone"
+        android:layout_below="@id/edittext_state"
+        android:id="@+id/warning_text_frag2"
+        android:layout_marginTop="20dp"
+        />
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:id="@+id/frag2_next"
+        android:layout_below="@+id/warning_text_frag2"
+        android:layout_marginTop="50dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="30dp"
+        />
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:id="@+id/frag2_back"
+        android:layout_below="@id/warning_text_frag2"
+        android:layout_marginTop="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="30dp"
+        />
+
+</RelativeLayout>
