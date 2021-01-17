@@ -77,6 +77,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="First Category"
+                android:elevation="10dp"
                 android:id="@+id/first_category"
                 />
 
@@ -87,6 +88,7 @@
                 android:id="@+id/second_category"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="10dp"
+                android:elevation="10dp"
                 />
 
             <Button
@@ -95,6 +97,7 @@
                 android:text="Third Category"
                 android:id="@+id/third_category"
                 android:layout_below="@id/first_category"
+                android:elevation="10dp"
                 android:layout_marginLeft="10dp"
                 />
 
@@ -105,6 +108,7 @@
                 android:id="@+id/fourth_category"
                 android:layout_below="@id/first_category"
                 android:layout_alignParentRight="true"
+                android:elevation="10dp"
                 android:layout_marginRight="10dp"
                 />
 
