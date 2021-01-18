@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -74,6 +75,16 @@ public class FirstCartFragment extends Fragment implements CartAdapter.DeleteBut
             totalRelative.setVisibility(View.VISIBLE);
             adapter.setItems(allItems);
         }
+
+        placeOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction fragmentTransaction= getActivity().getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.frameLayout, new SecondCartFragment());
+                fragmentTransaction.commit();
+            }
+        });
+
         return view;
     }
 

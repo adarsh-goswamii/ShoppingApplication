@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+<RelativeLayout
     android:layout_width="match_parent"
     android:padding="10dp"
     android:background="#20000000"
@@ -32,6 +36,7 @@
         android:layout_height="50dp"
         android:id="@+id/edittext_number"
         android:hint="  Mobile Number"
+        android:inputType="number"
         android:background="@drawable/stylles"
         android:layout_below="@+id/edittext_name"
         android:layout_marginTop="10dp"
@@ -43,6 +48,7 @@
         android:layout_height="50dp"
         android:id="@+id/edittext_pincode"
         android:hint="  PIN code"
+        android:inputType="number"
         android:background="@drawable/stylles"
         android:layout_below="@+id/edittext_number"
         android:layout_marginTop="10dp"
@@ -140,3 +146,4 @@
         />
 
 </RelativeLayout>
+</ScrollView>

@@ -14,7 +14,7 @@ import java.util.HashSet;
 
 public class Utils
 {
-    private static int ID= 0;
+    private static int ID= 0, CART_ID= 0;
     private static final String ALL_ITEMS_KEY= "all_items_key";
     private static final String DB_NAME= "fake_database";
     private static final String CART_ITEMS_KEY= "cart";
@@ -108,6 +108,11 @@ public class Utils
     public static int getID() {
         ID++;
         return ID;
+    }
+
+    public static int getCartID() {
+        CART_ID++;
+        return CART_ID;
     }
 
     public static void changeRate(Context context, int itemId, int rate)
