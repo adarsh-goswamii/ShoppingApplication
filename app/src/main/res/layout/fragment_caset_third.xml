@@ -76,6 +76,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="16sp"
+                    android:id="@+id/radio_cash_on_delivery"
                     android:text="Cash On Delivery"
                     android:layout_marginLeft="30dp"
                     />
@@ -201,7 +202,7 @@
     </RelativeLayout>
 
     <Button
-        android:layout_width="150dp"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:text="Checkout"
         android:id="@+id/frag3_next"
@@ -213,7 +214,7 @@
         />
 
     <Button
-        android:layout_width="150dp"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:text="Back"
         android:id="@+id/frag3_back"

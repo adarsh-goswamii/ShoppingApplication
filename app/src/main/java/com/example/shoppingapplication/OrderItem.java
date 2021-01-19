@@ -7,6 +7,25 @@ public class OrderItem
     private String name, number, pin, landmark, state, city, area, houseno;
     private ArrayList<GroceryItem> items= new ArrayList<>();
     private int id;
+    private String paymentMethod;
+
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+
+    public boolean isSuccess() {
+        return success;
+    }
+
+    public void setSuccess(boolean success) {
+        this.success = success;
+    }
+
+    private boolean success;
 
     public OrderItem() {
     }

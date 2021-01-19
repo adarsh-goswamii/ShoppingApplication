@@ -37,11 +37,11 @@ public class ThirdCartFragment extends Fragment
         Bundle bundle= getArguments();
         if(bundle!= null)
         {
-            String JsonOrder= bundle.getString(ORDER_KEY);
+            final String JsonOrder= bundle.getString(ORDER_KEY);
             if(JsonOrder!= null) {
                 Gson gson = new Gson();
                 Type type= new TypeToken<OrderItem>(){}.getType();
-                OrderItem orderItem = gson.fromJson(JsonOrder, type);
+                final OrderItem orderItem = gson.fromJson(JsonOrder, type);
                 if (orderItem != null) {
                     StringBuilder item = new StringBuilder("\t");
                     for (GroceryItem i : orderItem.getItems())
@@ -66,6 +66,45 @@ public class ThirdCartFragment extends Fragment
                         }
                     });
                 }
+
+                back.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Bundle bundle= new Bundle();
+                        bundle.putString(ORDER_KEY, JsonOrder);
+                        SecondCartFragment fragment= new SecondCartFragment();
+                        fragment.setArguments(bundle);
+                        FragmentTransaction transaction= getActivity().getSupportFragmentManager().beginTransaction();
+                        transaction.replace(R.id.frameLayout, fragment);
+                        transaction.commit();
+                    }
+                });
+
+                checkOut.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        switch(radioGroup.getCheckedRadioButtonId())
+                        {
+                            case R.id.radio_google_pay:
+                                orderItem.setPaymentMethod("google pay");
+                                break;
+
+                            case R.id.radio_debit_card:
+                                orderItem.setPaymentMethod("debit card");
+                                break;
+
+                            case R.id.radio_credit_card:
+                                orderItem.setPaymentMethod("credit card");
+                                break;
+
+                            case R.id.radio_cash_on_delivery:
+                                orderItem.setPaymentMethod("cash on delivery");
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                });
             }
         }
 
@@ -78,6 +117,7 @@ public class ThirdCartFragment extends Fragment
         for(GroceryItem i: item)
             price+= i.getPrice();
 
+        price= Math.round(price*100.0)/100.0;
         return price+"$";
     }
 

@@ -28,14 +28,14 @@
         android:id="@+id/edittext_name"
         android:layout_below="@+id/textview_add_address"
         android:background="@drawable/stylles"
-        android:hint="  Enter your Name"
+        android:hint="Enter your Name"
         />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:id="@+id/edittext_number"
-        android:hint="  Mobile Number"
+        android:hint="Mobile Number"
         android:inputType="number"
         android:background="@drawable/stylles"
         android:layout_below="@+id/edittext_name"
@@ -47,7 +47,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:id="@+id/edittext_pincode"
-        android:hint="  PIN code"
+        android:hint="PIN code"
         android:inputType="number"
         android:background="@drawable/stylles"
         android:layout_below="@+id/edittext_number"
@@ -59,7 +59,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:id="@+id/edittext_houseno"
-        android:hint="  Flat, House no, Building, Company, Apartment."
+        android:hint="Flat, House no, Building, Company, Apartment."
         android:background="@drawable/stylles"
         android:layout_below="@+id/edittext_pincode"
         android:layout_marginTop="10dp"
@@ -70,7 +70,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:id="@+id/edittext_area"
-        android:hint="  Area, Colony, Street, Sector, Village"
+        android:hint="Area, Colony, Street, Sector, Village"
         android:background="@drawable/stylles"
         android:layout_below="@+id/edittext_houseno"
         android:layout_marginTop="10dp"
@@ -81,7 +81,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:id="@+id/edittext_landmark"
-        android:hint="  Landmark e.g. near Apollo Hospital"
+        android:hint="Landmark e.g. near Apollo Hospital"
         android:background="@drawable/stylles"
         android:layout_below="@+id/edittext_area"
         android:layout_marginTop="10dp"
@@ -92,7 +92,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:id="@+id/edittext_city"
-        android:hint="  Town/City"
+        android:hint="Town/City"
         android:background="@drawable/stylles"
         android:layout_below="@+id/edittext_landmark"
         android:layout_marginTop="10dp"
@@ -103,7 +103,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:id="@+id/edittext_state"
-        android:hint="  State"
+        android:hint="State"
         android:background="@drawable/stylles"
         android:layout_below="@+id/edittext_city"
         android:layout_marginTop="10dp"
@@ -124,7 +124,7 @@
         />
 
     <Button
-        android:layout_width="150dp"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:text="Next"
         android:id="@+id/frag2_next"
@@ -135,7 +135,7 @@
         />
 
     <Button
-        android:layout_width="150dp"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:text="Back"
         android:id="@+id/frag2_back"

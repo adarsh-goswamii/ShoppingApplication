@@ -14,7 +14,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.zip.Inflater;
 
@@ -30,6 +32,28 @@ public class SecondCartFragment extends Fragment
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_caset_second, container, false);
         initViews(view);
+
+        Bundle bundle= getArguments();
+        if(bundle!= null)
+        {
+            String JsonOrder= bundle.getString(ORDER_KEY);
+            if(JsonOrder!= null)
+            {
+                Gson gson = new Gson();
+                Type type= new TypeToken<OrderItem>(){}.getType();
+                final OrderItem orderItem = gson.fromJson(JsonOrder, type);
+                if (orderItem != null) {
+                    name.setText(orderItem.getName());
+                    number.setText(orderItem.getNumber());
+                    pin.setText(orderItem.getPin());
+                    houseno.setText(orderItem.getHouseno());
+                    area.setText(orderItem.getArea());
+                    city.setText(orderItem.getCity());
+                    state.setText(orderItem.getState());
+                    landmark.setText(orderItem.getLandmark());
+                }
+            }
+        }
 
         back2.setOnClickListener(new View.OnClickListener() {
             @Override
