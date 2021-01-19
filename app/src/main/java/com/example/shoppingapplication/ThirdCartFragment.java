@@ -1,6 +1,7 @@
 package com.example.shoppingapplication;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,14 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 import static com.example.shoppingapplication.SecondCartFragment.ORDER_KEY;
 
@@ -103,6 +112,51 @@ public class ThirdCartFragment extends Fragment
                             default:
                                 break;
                         }
+
+                        orderItem.setSuccess(true);
+
+                        HttpLoggingInterceptor interceptor= new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY);
+                        OkHttpClient client= new OkHttpClient.Builder()
+                                .addInterceptor(interceptor)
+                                .build();
+
+                        Retrofit retrofit= new Retrofit.Builder()
+                                .baseUrl("https://jsonplaceholder.typicode.com/")
+                                .addConverterFactory(GsonConverterFactory.create())
+                                .client(client)
+                                .build();
+
+                        OrderEndPoint orderEndPoint= retrofit.create(OrderEndPoint.class);
+                        Call<OrderItem> call= orderEndPoint.newOrder(orderItem);
+                        call.enqueue(new Callback<OrderItem>() {
+                            @Override
+                            public void onResponse(Call<OrderItem> call, Response<OrderItem> response) {
+                                Log.d("TAG", "On Response: "+response.code());
+
+                                if(response.isSuccessful())
+                                {
+                                    Bundle bundle= new Bundle();
+                                    bundle.putString(ORDER_KEY, gson.toJson(response.body()));
+
+                                    PaymentResultFragment fragment= new PaymentResultFragment();
+                                    fragment.setArguments(bundle);
+                                    FragmentTransaction transaction= getActivity().getSupportFragmentManager().beginTransaction();
+                                    transaction.replace(R.id.frameLayout, fragment);
+                                    transaction.commit();
+                                }
+                                else
+                                {
+                                    FragmentTransaction transaction= getActivity().getSupportFragmentManager().beginTransaction();
+                                    transaction.replace(R.id.frameLayout, new PaymentResultFragment());
+                                    transaction.commit();
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<OrderItem> call, Throwable t) {
+                                t.getStackTrace();
+                            }
+                        });
                     }
                 });
             }

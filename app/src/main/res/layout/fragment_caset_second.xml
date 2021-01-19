@@ -59,7 +59,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:id="@+id/edittext_houseno"
-        android:hint="Flat, House no, Building, Company, Apartment."
+        android:hint="Flat, House no, Building, Apartment"
         android:background="@drawable/stylles"
         android:layout_below="@+id/edittext_pincode"
         android:layout_marginTop="10dp"

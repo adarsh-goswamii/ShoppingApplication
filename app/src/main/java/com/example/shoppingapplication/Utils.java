@@ -194,7 +194,7 @@ public class Utils
 
     public static ArrayList<GroceryItem> getCart(Context context)
     {
-        SharedPreferences sharedPreferences= context.getSharedPreferences(DB_NAME, Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences= context.getSharedPreferences(DB_NAME, context.MODE_PRIVATE);
         ArrayList<GroceryItem> cartItems= gson.fromJson(sharedPreferences.getString(CART_ITEMS_KEY, null), groceryListType);
         return cartItems;
     }
@@ -270,6 +270,39 @@ public class Utils
             SharedPreferences.Editor editor= sharedPreferences.edit();
             editor.remove(CART_ITEMS_KEY);
             editor.putString(CART_ITEMS_KEY, gson.toJson(newItem));
+            editor.commit();
+        }
+    }
+
+    public static void deleteCart(Context context)
+    {
+        SharedPreferences sharedPreferences= context.getSharedPreferences(DB_NAME, context.MODE_PRIVATE);
+        SharedPreferences.Editor editor= sharedPreferences.edit();
+        editor.remove(CART_ITEMS_KEY);
+        editor.commit();
+    }
+
+    public static void increasePopularity(Context context, GroceryItem groceryItem, int points)
+    {
+        ArrayList<GroceryItem> allItems= Utils.getAllItems(context);
+        if(allItems!= null)
+        {
+            ArrayList<GroceryItem> newItems= new ArrayList<>();
+            for(GroceryItem i: allItems)
+            {
+                if(i.getId()== groceryItem.getId())
+                {
+                    i.setPopularity(i.getPopularity()+ points);
+                    newItems.add(i);
+                }
+                else
+                    newItems.add(i);
+            }
+
+            SharedPreferences sharedPreferences= context.getSharedPreferences(DB_NAME, context.MODE_PRIVATE);
+            SharedPreferences.Editor editor= sharedPreferences.edit();
+            editor.remove(ALL_ITEMS_KEY);
+            editor.putString(ALL_ITEMS_KEY, gson.toJson(newItems));
             editor.commit();
         }
     }

@@ -71,7 +71,8 @@ public class GroceryItemActivity extends AppCompatActivity implements AddReviewD
                     @Override
                     public void onClick(View view) {
                         Utils.addToCart(GroceryItemActivity.this, product);
-                        // todo navigate to other activity.
+                        Intent intent= new Intent(GroceryItemActivity.this, CartActivity.class);
+                        startActivity(intent);
                     }
                 });
 

@@ -10,85 +10,74 @@
     android:padding="10dp"
     android:layout_height="match_parent">
 
-    <RadioGroup
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/radio_group"
         android:background="@drawable/stylles"
+        android:id="@+id/payment_options"
         >
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Payment Options"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:id="@+id/text_payment"
+            android:layout_centerHorizontal="true"
+            />
 
-            <TextView
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_group"
+            android:layout_below="@+id/text_payment"
+            >
+
+            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Payment Options"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:textColor="#000000"
-                android:id="@+id/text_payment"
-                android:layout_centerHorizontal="true"
+                android:text="Google Pay"
+                android:textSize="16sp"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/radio_google_pay"
                 />
 
-            <LinearLayout
-                android:layout_below="@+id/text_payment"
-                android:layout_centerHorizontal="true"
-                android:layout_width="wrap_content"
-                android:id="@+id/linear_layout1"
-                android:layout_height="wrap_content">
-
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Google Pay"
-                    android:textSize="16sp"
-                    android:layout_marginLeft="10dp"
-                    android:id="@+id/radio_google_pay"
-                    />
-
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:text="Credit Card"
-                    android:id="@+id/radio_credit_card"
-                    android:layout_marginLeft="30dp"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
+            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@+id/linear_layout1">
+                android:textSize="16sp"
+                android:text="Credit Card"
+                android:id="@+id/radio_credit_card"
+                android:layout_marginLeft="10dp"
+                />
 
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:id="@+id/radio_debit_card"
-                    android:text="Debit Card"
-                    />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:id="@+id/radio_debit_card"
+                android:layout_marginLeft="10dp"
+                android:text="Debit Card"
+                />
 
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:id="@+id/radio_cash_on_delivery"
-                    android:text="Cash On Delivery"
-                    android:layout_marginLeft="30dp"
-                    />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:id="@+id/radio_cash_on_delivery"
+                android:text="Cash On Delivery"
+                android:layout_marginLeft="10dp"
+                />
 
-            </LinearLayout>
-        </RelativeLayout>
-    </RadioGroup>
+        </RadioGroup>
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/radio_group"
+        android:layout_below="@+id/payment_options"
         android:background="@drawable/stylles"
         android:id="@+id/relative_layout_summary"
         android:layout_marginTop="10dp"
