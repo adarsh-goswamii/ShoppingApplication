@@ -163,9 +163,8 @@ public class SearchActivity extends AppCompatActivity implements AllCategoriesDi
         String text= editText.getText().toString();
         if(!text.equals(""))
         {
-            ArrayList<GroceryItem> items= Utils.searchByName(this, text);
-            if(items!= null)
-                adapter.setItems(items);
+            ArrayList<GroceryItem> items= Utils.searchByNamee(this, text);
+            adapter.setItems(items);
         }
     }
 

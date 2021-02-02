@@ -50,7 +50,7 @@ public class GroceryItemAdapter extends RecyclerView.Adapter<GroceryItemAdapter.
 
     @Override
     public int getItemCount() {
-        return items.size();
+        return items== null? 0: items.size();
     }
 
     public void setItems(ArrayList<GroceryItem> items)

@@ -2,6 +2,8 @@ package com.example.shoppingapplication;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.SystemClock;
+import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -18,8 +20,10 @@ public class Utils
     private static final String ALL_ITEMS_KEY= "all_items_key";
     private static final String DB_NAME= "fake_database";
     private static final String CART_ITEMS_KEY= "cart";
+    private static final String TRIE_KEY= "trie";
     private static Gson gson= new Gson();
     private static Type groceryListType= new TypeToken<ArrayList<GroceryItem>>(){}.getType();
+    private static Type TrieType= new TypeToken<TrieNode>(){}.getType();
 
     public static void initSharedPreferences(Context context)
     {
@@ -96,6 +100,71 @@ public class Utils
         SharedPreferences.Editor editor= sharedPreferences.edit();
         editor.putString(ALL_ITEMS_KEY, gson.toJson(allItem));
         editor.commit();
+
+        buildTrie(allItem, context);
+    }
+
+    public static void buildTrie(ArrayList<GroceryItem> list, Context context)
+    {
+        TrieNode root= new TrieNode();
+        for(GroceryItem item: list)
+        {
+            Log.e("tag", root+"");
+            addToTrie(item, root);
+        }
+
+        SharedPreferences sharedPreferences= context.getSharedPreferences(DB_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor= sharedPreferences.edit();
+        editor.putString(TRIE_KEY, gson.toJson(root));
+        editor.commit();
+    }
+
+    public static void addToTrie(GroceryItem item, TrieNode _root)
+    {
+        TrieNode root= _root;
+        for(char c: (item.getName().toLowerCase()).toCharArray())
+        {
+            Log.e("tag", c+"");
+            if(root.child[c]== null)
+                root.child[c]= new TrieNode();
+
+            root= root.child[c];
+        }
+
+        root.item= item;
+    }
+
+    public static ArrayList<GroceryItem> searchByNamee(Context context, String key)
+    {
+        SharedPreferences sharedPreferences= context.getSharedPreferences(DB_NAME, Context.MODE_PRIVATE);
+        TrieNode root= gson.fromJson(sharedPreferences.getString(TRIE_KEY, null), TrieType);
+
+        for(char c: key.toLowerCase().toCharArray())
+        {
+            if(root.child[c]== null)
+                return null;
+            else
+                root= root.child[c];
+        }
+
+        ArrayList<GroceryItem> ret= new ArrayList<>();
+        trieGet(ret, root);
+
+        return ret;
+    }
+
+    public static void trieGet(ArrayList<GroceryItem> list, TrieNode root)
+    {
+        if(root== null)
+            return;
+        else
+        {
+            if(root.item!= null)
+                list.add(root.item);
+
+            for(int i=0;i<256;i++)
+                trieGet(list, root.child[i]);
+        }
     }
 
     public static ArrayList<GroceryItem> getAllItems(Context context)
